@@ -1,4 +1,4 @@
-package controller;
+package com.northcoders.drinksapi.controller;
 
 
 import org.junit.jupiter.api.Test;
@@ -23,6 +23,18 @@ public class HomeControllerTests {
 
         this.mockMvcController.perform(
                         MockMvcRequestBuilders.get("/"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+    }
+
+
+    @Test
+    public void testGetCoffee() throws Exception {
+
+        String expectedContent = "I like coffee!";
+
+        this.mockMvcController.perform(
+                        MockMvcRequestBuilders.get("/coffeelover"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(expectedContent));
     }
