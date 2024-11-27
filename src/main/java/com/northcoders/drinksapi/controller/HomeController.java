@@ -13,7 +13,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/coffeelover")
-    public Coffee getCoffee(){
-        return new Coffee(1, "latte");
+    public Coffee getCoffee(String coffeeName){
+        return new Coffee(1, coffeeName);
     }
 }
