@@ -35,7 +35,7 @@ public class HomeControllerTests {
         String expectedContent = "latte";
 
         this.mockMvcController.perform(
-                        MockMvcRequestBuilders.get("/coffeelover"))
+                        MockMvcRequestBuilders.get("/coffeelover").param("coffeeName", "latte"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedContent));
     }
