@@ -2,6 +2,7 @@ package com.northcoders.drinksapi.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.northcoders.drinksapi.model.Coffee;
 
 @RestController
 public class HomeController {
@@ -12,7 +13,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/coffeelover")
-    public String getCoffee(){
-        return "I like coffee!";
+    public Coffee getCoffee(){
+        return new Coffee(1, "latte");
     }
 }
