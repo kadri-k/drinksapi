@@ -1,6 +1,7 @@
 package com.northcoders.drinksapi.controller;
 
 
+import com.northcoders.drinksapi.model.Coffee;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -31,11 +32,11 @@ public class HomeControllerTests {
     @Test
     public void testGetCoffee() throws Exception {
 
-        String expectedContent = "I like coffee!";
+        String expectedContent = "latte";
 
         this.mockMvcController.perform(
                         MockMvcRequestBuilders.get("/coffeelover"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedContent));
     }
 }
